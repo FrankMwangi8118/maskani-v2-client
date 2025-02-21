@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import "./Landing.css";
 import landing from "../../assets/landing.jpg";
-
 const words = ["Dream Home", "Perfect Home"];
-const [maxPrice, setMaxPrice] = useState(0);
 
-const setmax=(event)=>{
-    event.preventDefault();
-    setMaxPrice(event.target.value);
-}
 
 const Landing = () => {
+
+    const setmax=(event)=>{
+        event.preventDefault();
+        setMaxPrice(event.target.value);
+    }
+    const [maxPrice, setMaxPrice] = useState(0);
+
     const [wordIndex, setWordIndex] = useState(0);
     const [isFlipping, setIsFlipping] = useState(false);
-
+    const [open,setOpen] = useState(true);
     useEffect(() => {
         const interval = setInterval(() => {
             setIsFlipping(true);
@@ -61,10 +62,13 @@ const Landing = () => {
                       </div>
 
                     <div className="filter2">
-                        <div className="range-max"></div>
-
-                        <button>hello</button>
-
+                        <div className="range-max">
+                            <input
+                                type="number"
+                                placeholder="max-price"
+                                onChange={setmax}
+                            />
+                        </div>
                     </div>
 
 
@@ -86,10 +90,28 @@ const Landing = () => {
 
                     </div>
                     <div className="filter4">
-                        <input type="number"/>
+                        <div className="advanced-search">
+                            <button
+                                onClick={()=>setOpen(!open)}
+                                className="search">
+                                advanced search
+                            </button>
+                        </div>
 
                     </div>
+
                 </div>
+
+                <div className="filter_modal">
+                    {open?():{
+
+
+
+                    }
+
+
+                </div>
+
             </div>
 
 
