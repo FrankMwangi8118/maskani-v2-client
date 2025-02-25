@@ -103,11 +103,64 @@ const Landing = () => {
                 </div>
 
                 <div className="filter_modal">
-                    {open?():{
+                    {open?(
+                        <div className="modal-advanced">
+                            {/*modal-left*/}
+                            <div className="modal-left">
+                                <div className="modalLeft-left">
+                                   <p className="county">county</p>
+                                    <input
+                                        className="county-i"
+                                        placeholder="county"
+
+                                    />
+
+                                </div>
+                                <div className="modalLeft-right">
+                                   <p className="subCounty">sub-county</p>
+                                    <input
+                                        className="subCounty-i"
+                                        placeholder={"subcounty"}
+                                    />
+
+                                </div>
+                            </div>
+                            {/*modal-right*/}
+                            <div className="modal-right">
+                                <div className="modalRight-left">
+                                    <p className="type-p">type</p>
+                                    <div className="type-modal">
+                                        <select>
+                                            <option></option>
+                                            <option>Free</option>
+                                            <option>Free</option>
+                                            <option>Free</option>
+                                            <option>Free</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                                <div className="modalRight-right">
+                                    <p className={"max-p"}>max-rent</p>
+                                    <input
+                                        type={"number"}
+                                        className={"max-i"}
+                                        placeholder={"max-rent-price"}
+                                    />
+                                    <button className="search-modal-btn">search -&gt; </button>
+
+                                </div>
+
+                            </div>
 
 
 
-                    }
+
+                        </div>
+                    ):(<>
+
+                    </>)}
 
 
                 </div>

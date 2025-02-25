@@ -1,53 +1,35 @@
 import React from "react";
 import "./PropertyCard.css";
+import location from "../../assets/location.png"
 
-const PropertyCard = ({ property }) => {
+const PropertyCard = ({property}) => {
     return (
-        <div className="property-card">
-            {/* Image Section */}
-            <div className="image-section">
-                <img src={property.image} alt={property.name} />
-                <div className="location-overlay">
-                    <p>{property.address}</p>
-                </div>
+        <div className="card">
+            <div className="card-image">
+                <img src={property.image} alt="Property" />
                 <div className="labels">
-                    {property.isFeatured && <span className="label featured">Featured</span>}
-                    <span className="label for-sale">For Sale</span>
+                    <span className="label-featured">Featured</span>
                 </div>
             </div>
+            <div className="card-content">
+                <p className="address"> <img className={"location-icon"} width="17" height="17" src={location} alt="marker"/> {property.address}</p>
+                <h2 className="title">{property.name}</h2>
+                <p className="details">
+                    <img width="17" height="17" src="https://img.icons8.com/ios-filled/50/country-house.png" alt="country-house"/> Beds: {property.beds} &nbsp; | &nbsp; 🛁 Baths: {property.baths} &nbsp; | &nbsp; 📏 Sqft: {property.sqft}
+                </p>
+                <hr className={"seperator"}/>
+                <div className="footer">
 
-            {/* Details Section */}
-            <div className="property-details">
-                <h3 className="name">{property.name}</h3>
-                <div className="info">
-                    <span>
-                        <i className="fa-solid fa-bed"></i> Beds: {property.beds}
-                    </span>
-                    <span>
-                        <i className="fa-solid fa-bath"></i> Baths: {property.baths}
-                    </span>
-                    <span>
-                        <i className="fa-solid fa-square"></i> Sqft: {property.sqft}
-                    </span>
-                    {/* Added Type Field */}
-                    <span style={{
-                        marginLeft: "7px",
-                        color: "blue"
-                    }}>
-                        <i className="fa-solid fa-tags"></i> Type: {property.type || "N/A"}
-                    </span>
-                </div>
-            </div>
+                    <div className="owner">
+                        <img src={property.agentImage} alt="Owner" />
 
-            {/* Footer Section */}
-            <div className="footer">
-                <div className="agent">
-                    <img src={property.agentImage}  />
-                    <p>{property.agentName}</p>
+                        <span className="agent-name">{property.agentName}</span>
+                    </div>
+                    <span className="price">${property.price}</span>
                 </div>
-                <p className="price">${property.price.toLocaleString()}</p>
             </div>
         </div>
     );
 };
+
 export default PropertyCard;

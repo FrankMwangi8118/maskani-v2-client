@@ -7,15 +7,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 105vh;
     position: relative;
     background: rgba(0,0,0,0.4);
+
 
 }
 
 .landing-img img {
     width: 100%;
-    height: 962px;
+    height: 980px;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -110,15 +111,16 @@ span{
 
 }
 .button .forSale{
-    border: 1px solid white;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     background: rgba(0,0,0,0.1);
+    border-color: #007bff;
+
 
 }
 .button .forSale:hover{
     background: #1563DF;
-    border: none;
+    border-color: #007bff;
 }
 .button .forRent{
     outline: none;
@@ -127,7 +129,7 @@ span{
 }
 .filter-section{
     z-index: 200;
-    background-color:#ffffff;
+    background-color:#f0f8ff;
     margin-top: 20px;
     width: 100%;
     align-items: center;
@@ -269,14 +271,177 @@ span{
     height: 240px;
     margin-top: 20px;
     border-radius: 30px;
-    background-color:#ffffff;
+    background: rgba(255, 255, 255, 0.1);  /* Semi-transparent white background */
+    backdrop-filter: blur(10px);
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+
     justify-content: center;
     display: flex;
     gap: 60px;
 }
-.house-type{
+.modal-advanced{
+    margin-top: 15px;
+    width: 100%;
+    height: 180px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.3);  /* Semi-transparent white background */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
 
+    display: flex;
+    gap: 60px;
+}
+.modal-left{
+    width: 515px;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+
+}
+.modal-right{
+    width: 515px;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+}
+.modalLeft-left{
+    width: 260px;
+    height: 100%;
+}
+.modalLeft-right{
+    width: 260px;
+    height: 100%;
+}
+
+.modalRight-left{
+    width: 260px;
+    height: 100%;
+}
+.modalRight-right{
+    width: 260px;
+    height: 100%;
+}
+.county-i{
+    background: rgba(255, 255, 255, 0.5);
+
+    margin-left: 7px;
+    width:93%;
+    height:70px;
+    border: 1px solid grey;
+    outline: none;
+    border-radius:30px;
+    padding-left: 14px;
+    margin-top: 13px;
+
+}
+.subCounty-i{
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: 13px;
+    margin-left: 7px;
+    width:93%;
+    height:70px;
+    border: 1px solid grey;
+    outline: none;
+    border-radius:30px;
+    padding-left: 14px;
 }
 
 
+.county-i::placeholder{
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+}
+
+.subCounty-i::placeholder{
+    color: black;
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+.subCounty{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 23px;
+    margin-left: 79px;
+}
+.county{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 23px;
+    margin-left: 96px;
+}
+.type-modal select{
+        margin-left: 10px;
+        width: 93%;
+        height: 70px;
+        outline: none;
+        font-family: "Mona Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        margin-top:13px;
+        border: 1px solid grey;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.5);
+
+
+}
+.type-p{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 23px;
+    margin-left: 79px;
+
+
+}
+
+.max-p{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 23px;
+    margin-left: 79px;
+
+}
+.max-i{
+    background: rgba(255, 255, 255, 0.5);
+
+    margin-left: -16px;
+    width:93%;
+    height:70px;
+    border: 1px solid grey;
+    outline: none;
+    border-radius:30px;
+    padding-left: 14px;
+    margin-top: 13px;
+}
+.max-i::placeholder{
+    color: black;
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+.search-modal-btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    margin-top: 8px;
+    margin-left: 110px;
+    font-weight: 700;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 19px;
+    cursor: pointer;
+    color: #0654a6;
+    position: relative; /* Required for left/right movement */
+    animation: bounceRight 1s ease-in-out infinite alternate;
+}
+
+@keyframes bounceRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(5px); /* Adjust the bounce distance */
+    }
+}
