@@ -17,3 +17,9 @@
     color:#007bff;
     margin-top: 20px;
 }
+.listing-grid {
+    margin-left: 84px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(415px, 0.1fr)); /* 3 cards per row with responsive resizing */
+    gap: 20px; /* space between the cards */
+}
