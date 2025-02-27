@@ -6,8 +6,6 @@ const Listing=({property})=>{
     useEffect(()=>{
         setListing(property);
     }, [property]);
-    console.log("listing");
-    console.log(listing);
 
     return(
 <div className="listing-wrapper">

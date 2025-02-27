@@ -7,8 +7,24 @@ import axios from "axios";
 const App = () => {
 
     const [allHouse,setAllHouse] = useState([]);
+    const [filterUrl,setFilterUrl]=useState("");
+    // const [filteredUnits,setFilteredUnits]=useState([]);
 
     const BASE_URL = `http://localhost:8081/maskani/api/v1/report`;
+
+
+    const getFilterUrl = (filter) =>{
+        setFilterUrl(filter);
+
+    }
+
+        const getFilteredUnits = (filtered) => {
+            console.log("Filtered Units received in App:", filtered);
+            setAllHouse(filtered);
+        };
+
+
+    console.log(filterUrl)
 
     const apiCall=()=>{
         axios
@@ -31,11 +47,16 @@ const App = () => {
 
 
 
+
+
     return(
         <>
 
-            <Landing/>
-            <Listing  property={allHouse}/>
+            <Landing
+                getFilterUrl={getFilterUrl}
+                getFilteredUnits={getFilteredUnits}
+            />
+            <Listing  property={allHouse} />
 
 
 

@@ -21,9 +21,9 @@ const PropertyCard = ({property}) => {
                 <div className="footer">
 
                     <div className="owner">
-                        <img src={property.agentImage} alt="Owner" />
+                        <img src="https://picsum.photos/200/300" alt="Owner" />
 
-                        <span className="agent-name">"mwas"</span>
+                        <span className="agent-name">mwas</span>
                     </div>
                     <span className="price">${property.rent_price}</span>
                 </div>

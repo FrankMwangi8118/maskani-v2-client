@@ -129,7 +129,7 @@ span{
 }
 .filter-section{
     z-index: 200;
-    background-color:#f0f8ff;
+    background-color:whitesmoke;
     margin-top: 20px;
     width: 100%;
     align-items: center;
@@ -424,17 +424,8 @@ span{
 }
 .search-modal-btn {
     background-color: transparent;
-    outline: none;
-    border: none;
-    margin-top: 8px;
-    margin-left: 110px;
-    font-weight: 700;
-    font-family: "Mona Sans", sans-serif;
-    font-size: 19px;
-    cursor: pointer;
-    color: #0654a6;
-    position: relative; /* Required for left/right movement */
-    animation: bounceRight 1s ease-in-out infinite alternate;
+
+    /*animation: bounceRight 1s ease-in-out infinite alternate;*/
 }
 
 @keyframes bounceRight {
