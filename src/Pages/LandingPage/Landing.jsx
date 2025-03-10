@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Landing.css";
 import landing from "../../assets/landing.jpg";
 import axios from "axios";
+import NavBar from "../../Components/NavBar/NavBar.jsx";
 
 const words = ["Dream Home", "Perfect Home"];
 
@@ -65,6 +66,8 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
     };
 
     return (
+
+
         <div className="landing-wrapper">
             <div className="landing-img">
                 <img src={landing} alt="Landing" />

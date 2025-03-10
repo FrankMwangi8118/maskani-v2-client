@@ -4,6 +4,7 @@ import Service from "./Sevice/Service.jsx";
 import Listing from "./Pages/Listing/Listing.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import NavBar from "./Components/NavBar/NavBar.jsx";
 const App = () => {
 
     const [allHouse,setAllHouse] = useState([]);
@@ -50,14 +51,16 @@ const App = () => {
 
 
     return(
-        <>
 
-            <Landing
+    <>
+        <NavBar/>
+
+
+        <Landing
                 getFilterUrl={getFilterUrl}
                 getFilteredUnits={getFilteredUnits}
             />
             <Listing  property={allHouse} />
-
 
 
         </>
