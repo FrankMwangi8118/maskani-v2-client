@@ -11,6 +11,17 @@ const NavBar = () => {
                     <div className={"maskani-p"}><p className={"maskani"}>Maskani</p></div>
                     <div className={"homes-p"}><p className={"maskani"}>search homes</p></div>
                 </div>
+
+            </div>
+            <div className={"nav-links"}>
+                <li className={"home"}>Home</li>
+                <li className={"properties"}>Properties</li>
+                <li className={"about"}>About</li>
+                <li className={"careers"}>Careers</li>
+                <li className={"Pricing"}>Pricing</li>
+                <li className={"contacts"}>Contacts</li>
+
+
             </div>
             <div className={"btns"}>
                 <button className="btn-siginIn">
