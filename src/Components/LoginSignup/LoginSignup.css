@@ -1,0 +1,142 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 200px;
+    width: 500px;
+    background-color: white;
+    padding-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.text{
+    color: #0654a6;
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.underline{
+    width: 61px;
+    height: 6px;
+    background: #0654a6;
+    border-radius: 9px;
+}
+
+.inputs{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 60px;
+    background: #eaeaea;
+    border-radius: 40px;
+    transition: ease 0.1s;
+}
+.input:focus-within{
+    border: 1px #0654a6 solid;
+}
+.input img{
+    margin: 0px 30px;
+}
+
+.input input{
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #797979;
+    font-size: 19px;
+}
+.input input::placeholder{
+    font-size: small;
+}
+
+.forgot-password{
+    margin-left: 335px;
+    margin-top: 20px;
+    color: black;
+    font-size: 16px;
+    font-family: "Mona Sans", sans-serif;
+    transition: ease-in-out 0.1s;
+}
+.forgot-password:hover{
+    color: #0654a6;
+}
+
+.forgot-password span{
+    color: #0654a6;
+    cursor: pointer;
+}
+
+.submit-container{
+    display: flex;
+    gap: 30px;
+    margin: 60px auto;
+}
+
+/*.submit{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    width: 220px;*/
+/*    height: 59px;*/
+/*    color: #fff;*/
+/*    background: #0654a6;*/
+/*    border-radius: 50px;*/
+/*    font-size: 19px;*/
+/*    font-weight: 700;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.gray{*/
+/*    background: #EAEAEA;*/
+/*    color: #676767;*/
+/*}*/
+.already{
+    font-size: 1pc;
+    font-family: "Mona Sans", sans-serif;
+    color: #222222;
+    margin:1pc 0 0 7.6pc ;
+}
+.buttons{
+    background-color: #007bff;
+    width: 380px;
+    height: 3.5pc;
+    margin-left: 3.7pc;
+    margin-top: 1pc;
+    border-radius: 2pc;
+    outline: none;
+    border: none;
+
+}
+.sign {
+    margin-top: -5pc;
+}
+.login{
+    margin-top: -5.2pc;
+    margin-left:12pc;
+    color: #007bff;
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+}
+.login:hover {
+    text-decoration: underline;
+}

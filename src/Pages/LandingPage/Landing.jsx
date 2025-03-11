@@ -20,6 +20,7 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
     const [wordIndex, setWordIndex] = useState(0);
     const [isFlipping, setIsFlipping] = useState(false);
     const [open, setOpen] = useState(false);
+    const [page,setPageNo]=useState("0");
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -61,8 +62,6 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
             .catch(error => console.error("Error fetching data:", error));
 
         getFilterUrl(searchUrl);
-
-
     };
 
     return (
@@ -200,6 +199,9 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
                         </div>
                     </div>
                 )}
+            </div>
+            <div className={"next-page-nav"}>
+
             </div>
         </div>
     );

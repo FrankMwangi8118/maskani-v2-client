@@ -5,6 +5,7 @@ import Listing from "./Pages/Listing/Listing.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import NavBar from "./Components/NavBar/NavBar.jsx";
+import LoginSignUp from "./Components/LoginSignup/LoginSignup.jsx";
 const App = () => {
 
     const [allHouse,setAllHouse] = useState([]);
@@ -51,19 +52,21 @@ const App = () => {
 
 
     return(
-
-    <>
-        <NavBar/>
-
-
-        <Landing
-                getFilterUrl={getFilterUrl}
-                getFilteredUnits={getFilteredUnits}
-            />
-            <Listing  property={allHouse} />
-
-
-        </>
+<>
+    <LoginSignUp/>
+</>
+    // <>
+    //     <NavBar/>
+    //
+    //
+    //     <Landing
+    //             getFilterUrl={getFilterUrl}
+    //             getFilteredUnits={getFilteredUnits}
+    //         />
+    //         <Listing  property={allHouse} />
+    //
+    //
+    //     </>
     );
 }
 export default App;
