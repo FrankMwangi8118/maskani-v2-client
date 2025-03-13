@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import "./Landing.css";
 import landing from "../../assets/landing.jpg";
 import axios from "axios";
 import NavBar from "../../Components/NavBar/NavBar.jsx";
+import LoginSignUp from "../../Components/LoginSignup/LoginSignup.jsx";
 
 const words = ["Dream Home", "Perfect Home"];
 
-const Landing = ({getFilterUrl,getFilteredUnits}) => {
+const Landing = ({getFilterUrl, getFilteredUnits, isLogin}) => {
     const BASE_URL = `http://localhost:8081/maskani/api/v1/report`;
 
     const [unitType, setUnitType] = useState("");
@@ -15,12 +16,19 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
     const [minPrice, setMinPrice] = useState(null);
     const [maxPrice, setMaxPrice] = useState(null);
 
-    const [filteredUnits,setFilteredUnits]=useState([]);
+    const [filteredUnits, setFilteredUnits] = useState([]);
 
     const [wordIndex, setWordIndex] = useState(0);
     const [isFlipping, setIsFlipping] = useState(false);
     const [open, setOpen] = useState(false);
-    const [page,setPageNo]=useState("0");
+    const [page, setPageNo] = useState("0");
+    const [isslogin, setIslogin] = useState(false);
+    console.log("from lnding" + isslogin)
+
+    useEffect(() => {
+        setIslogin(isLogin);
+    }, [isLogin]);
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -69,7 +77,7 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
 
         <div className="landing-wrapper">
             <div className="landing-img">
-                <img src={landing} alt="Landing" />
+                <img src={landing} alt="Landing"/>
             </div>
 
             <div className="landing-content">
@@ -92,6 +100,8 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
                     <button className="forRent">For Rent</button>
                     <button className="forSale">For Sale</button>
                 </div>
+
+
                 <div className="filter-section">
                     <div className="filter1">
                         <div className="range-min">
@@ -200,6 +210,17 @@ const Landing = ({getFilterUrl,getFilteredUnits}) => {
                     </div>
                 )}
             </div>
+
+            {isslogin && (
+                <div className="test">
+                    <div className={"close"}
+                         onClick={()=>{setIslogin(!isslogin)}}
+                    >
+                        <p>X</p>
+                    </div>
+                    <LoginSignUp/>
+                </div>
+            )}
             <div className={"next-page-nav"}>
 
             </div>

@@ -9,7 +9,7 @@
     align-items: center;
     height: 102vh;
     position: relative;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
 
 
 }
@@ -28,18 +28,22 @@
 }
 
 .landing-content {
+    position: relative;
     align-items: center;
     justify-content: center;
-    width: 1080px ;
+    width: 1080px;
     height: 610px;
     margin-top: 229px;
+    z-index: 10;
 }
-span{
+
+span {
     font-family: "Mona Sans", sans-serif;
     font-size: 72px;
     font-weight: 700;
 
 }
+
 .landing-content .landing-text {
     width: 800px;
     color: white;
@@ -52,6 +56,7 @@ span{
     justify-content: center;
     align-items: center;
     gap: 10px;
+
 }
 
 .flip-text {
@@ -73,7 +78,8 @@ span{
     opacity: 0;
     filter: blur(5px);
 }
-.landing-p{
+
+.landing-p {
     color: white;
     font-family: "Mona Sans", sans-serif;
     font-size: 80px;
@@ -82,25 +88,29 @@ span{
     width: 570px;
     margin-left: 250px;
 }
-.p-text{
+
+.p-text {
     font-family: "Mona Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
 }
-.p-text-overflow{
+
+.p-text-overflow {
     font-family: "Mona Sans", sans-serif;
     margin-left: 75px;
     font-size: 18px;
 
 }
-.button{
+
+.button {
     width: 412px;
     display: flex;
     gap: 12px;
     margin-top: 75px;
     margin-left: 320px;
 }
-.button button{
+
+.button button {
 
     width: 200px;
     height: 60px;
@@ -110,26 +120,30 @@ span{
     font-weight: 700;
 
 }
-.button .forSale{
+
+.button .forSale {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-color: #007bff;
 
 
 }
-.button .forSale:hover{
+
+.button .forSale:hover {
     background: #1563DF;
     border-color: #007bff;
 }
-.button .forRent{
+
+.button .forRent {
     outline: none;
     border: none;
     background: #1563DF;
 }
-.filter-section{
+
+.filter-section {
     z-index: 200;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
     margin-top: 20px;
     width: 100%;
     align-items: center;
@@ -140,42 +154,48 @@ span{
     gap: 60px;
 
 }
-.filter1{
+
+.filter1 {
     width: 200px;
     height: 90px;
     border-right: 1px solid gray;
 
 }
-.filter2{
+
+.filter2 {
 
     width: 200px;
     height: 90px;
 
     border-right: 1px solid gray;
 }
-.filter3{
+
+.filter3 {
     width: 200px;
     height: 90px;
     border-right: 1px solid gray;
 }
-.filter4{
+
+.filter4 {
     align-items: center;
     justify-content: center;
     width: 200px;
     height: 90px;
 }
-.filter-section input{
+
+.filter-section input {
     width: 95%;
     height: 60%;
     margin-top: 16px;
 
 }
 
-.filter3 input{
+.filter3 input {
     margin-left: -30px;
 
 }
-.types{
+
+.types {
 
     display: flex;
     flex-direction: column;
@@ -184,7 +204,8 @@ span{
     width: auto;
 
 }
-.types select{
+
+.types select {
     width: 200px;
     height: 50px;
     margin-left: -70px;
@@ -197,14 +218,16 @@ span{
     margin-top: 10px;
 
 }
-.types option{
+
+.types option {
     font-family: "Mona Sans", sans-serif;
     font-weight: 400;
     border: none;
     outline: none;
 
 }
-.types label{
+
+.types label {
     margin-top: 10px;
     margin-right: 226px;
     font-family: "Mona Sans", sans-serif;
@@ -212,7 +235,8 @@ span{
     font-size: 16px;
     letter-spacing: 1px;
 }
-.range-min input{
+
+.range-min input {
     margin-top: 20px;
     width: 190px;
     height: 50px;
@@ -222,14 +246,16 @@ span{
     padding-left: 16px;
     outline: none;
 }
-.range-min input::placeholder{
+
+.range-min input::placeholder {
     color: black;
     font-family: "Mona Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
     margin-right: -10px;
 }
-.filter2 input{
+
+.filter2 input {
     margin-top: 20px;
     width: 190px;
     height: 50px;
@@ -239,17 +265,20 @@ span{
     padding-left: 16px;
     outline: none;
 }
-.filter2 input::placeholder{
+
+.filter2 input::placeholder {
     font-family: "Mona Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: black;
 }
-.advanced-search{
+
+.advanced-search {
     width: 100%;
     height: 100%;
 }
-.advanced-search .search{
+
+.advanced-search .search {
     margin-top: 13px;
     width: 100%;
     height: 70%;
@@ -262,133 +291,147 @@ span{
     background-color: #1563DF;
     transition: ease-in 250ms;
 }
-.advanced-search .search:hover{
+
+.advanced-search .search:hover {
     background: #0654a6;
 
 }
-.modal{
+
+.modal {
     width: 1080px;
     height: 240px;
     margin-top: 20px;
     border-radius: 30px;
-    background: rgba(255, 255, 255, 0.1);  /* Semi-transparent white background */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
     backdrop-filter: blur(10px);
     align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 
     justify-content: center;
     display: flex;
     gap: 60px;
 }
-.modal-advanced{
+
+.modal-advanced {
     margin-top: 15px;
     width: 100%;
     height: 180px;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.3);  /* Semi-transparent white background */
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 
     display: flex;
     gap: 60px;
 }
-.modal-left{
+
+.modal-left {
     width: 515px;
     height: 100%;
     display: flex;
     gap: 20px;
 
 }
-.modal-right{
+
+.modal-right {
     width: 515px;
     height: 100%;
     display: flex;
     gap: 20px;
 }
-.modalLeft-left{
-    width: 260px;
-    height: 100%;
-}
-.modalLeft-right{
+
+.modalLeft-left {
     width: 260px;
     height: 100%;
 }
 
-.modalRight-left{
+.modalLeft-right {
     width: 260px;
     height: 100%;
 }
-.modalRight-right{
+
+.modalRight-left {
     width: 260px;
     height: 100%;
 }
-.county-i{
+
+.modalRight-right {
+    width: 260px;
+    height: 100%;
+}
+
+.county-i {
     background: rgba(255, 255, 255, 0.5);
 
     margin-left: 7px;
-    width:93%;
-    height:70px;
+    width: 93%;
+    height: 70px;
     border: 1px solid grey;
     outline: none;
-    border-radius:30px;
+    border-radius: 30px;
     padding-left: 14px;
     margin-top: 13px;
 
 }
-.subCounty-i{
+
+.subCounty-i {
     background: rgba(255, 255, 255, 0.5);
     margin-top: 13px;
     margin-left: 7px;
-    width:93%;
-    height:70px;
+    width: 93%;
+    height: 70px;
     border: 1px solid grey;
     outline: none;
-    border-radius:30px;
+    border-radius: 30px;
     padding-left: 14px;
 }
 
 
-.county-i::placeholder{
+.county-i::placeholder {
     font-family: "Mona Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: black;
 }
 
-.subCounty-i::placeholder{
+.subCounty-i::placeholder {
     color: black;
     font-family: "Mona Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
 }
-.subCounty{
+
+.subCounty {
     font-weight: bold;
     font-size: 20px;
     margin-top: 23px;
     margin-left: 79px;
 }
-.county{
+
+.county {
     font-weight: bold;
     font-size: 20px;
     margin-top: 23px;
     margin-left: 96px;
 }
-.type-modal select{
-        margin-left: 10px;
-        width: 93%;
-        height: 70px;
-        outline: none;
-        font-family: "Mona Sans", sans-serif;
-        font-size: 18px;
-        font-weight: 500;
-        margin-top:13px;
-        border: 1px solid grey;
-        border-radius: 30px;
-        background: rgba(255, 255, 255, 0.5);
+
+.type-modal select {
+    margin-left: 10px;
+    width: 93%;
+    height: 70px;
+    outline: none;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 13px;
+    border: 1px solid grey;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.5);
 
 
 }
-.type-p{
+
+.type-p {
     font-weight: bold;
     font-size: 20px;
     margin-top: 23px;
@@ -397,31 +440,34 @@ span{
 
 }
 
-.max-p{
+.max-p {
     font-weight: bold;
     font-size: 20px;
     margin-top: 23px;
     margin-left: 79px;
 
 }
-.max-i{
+
+.max-i {
     background: rgba(255, 255, 255, 0.5);
 
     margin-left: -16px;
-    width:93%;
-    height:70px;
+    width: 93%;
+    height: 70px;
     border: 1px solid grey;
     outline: none;
-    border-radius:30px;
+    border-radius: 30px;
     padding-left: 14px;
     margin-top: 13px;
 }
-.max-i::placeholder{
+
+.max-i::placeholder {
     color: black;
     font-family: "Mona Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
 }
+
 .search-modal-btn {
     background-color: transparent;
 
@@ -436,3 +482,42 @@ span{
         transform: translateX(5px); /* Adjust the bounce distance */
     }
 }
+
+.test {
+    position: absolute; /* or fixed */
+    z-index: 1000; /* A high value to ensure it appears above other elements */
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    color: white;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    display: flex;
+}
+
+.close {
+    margin-top: -630px;
+    background-color: #007bff;
+    margin-left: 500px;
+    width: 40px;
+    height: 40px;
+    border-radius: 120px;
+    transition: ease-in 0.1s;
+    position: relative;
+}
+.close:hover {
+    background-color: #0654a6;
+}
+
+.close p {
+    font-size: 20px;
+    margin-left: 13px;
+    margin-top: 6px;
+}
+
+
+
+
+

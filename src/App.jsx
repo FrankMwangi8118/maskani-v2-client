@@ -7,6 +7,7 @@ import axios from "axios";
 import NavBar from "./Components/NavBar/NavBar.jsx";
 import LoginSignUp from "./Components/LoginSignup/LoginSignup.jsx";
 const App = () => {
+    const[isLogin,setIsLogin]=useState(false);
 
     const [allHouse,setAllHouse] = useState([]);
     const [filterUrl,setFilterUrl]=useState("");
@@ -14,6 +15,10 @@ const App = () => {
 
     const BASE_URL = `http://localhost:8081/maskani/api/v1/report`;
 
+    const setLogin=(states)=>{
+        setIsLogin(states)
+        console.log(isLogin + "from app")
+    }
 
     const getFilterUrl = (filter) =>{
         setFilterUrl(filter);
@@ -52,21 +57,20 @@ const App = () => {
 
 
     return(
-<>
-    <LoginSignUp/>
-</>
-    // <>
-    //     <NavBar/>
-    //
-    //
-    //     <Landing
-    //             getFilterUrl={getFilterUrl}
-    //             getFilteredUnits={getFilteredUnits}
-    //         />
-    //         <Listing  property={allHouse} />
-    //
-    //
-    //     </>
+
+    <>
+        <NavBar setLogin={setLogin}/>
+
+
+        <Landing
+                getFilterUrl={getFilterUrl}
+                getFilteredUnits={getFilteredUnits}
+                isLogin={isLogin}
+            />
+            <Listing  property={allHouse} />
+
+
+        </>
     );
 }
 export default App;
