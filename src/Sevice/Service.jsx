@@ -1,37 +1,29 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, {Axios} from "axios";
 
-const Service = ({ callBack }) => {
-    const BASE_URL = `http://localhost:8081/maskani/api/v1/report`;
-    const [allHouses, setAllHouses] = useState([]);
+const BASE_URL="http://localhost:8081/maskani/api/v1/security";
+const Service = {
+    loginCall: async (loginData) => {
+        try {
 
-    const fetchAll = async () => {
-        axios
-            .get(BASE_URL)
-            .then((res) => {
-                setAllHouses(res.data.results); // Set the data after fetch
-            })
-            .catch((error) => {
-                console.log(error); // Log any errors
+            const response = await axios.post(BASE_URL, loginData,{
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
             });
-    };
+            // console.log(response.data);
+            return response;
 
-    useEffect(() => {
-        fetchAll();
-    }, []);
-
-
-
-    useEffect(() => {
-        if (callBack && allHouses.length > 0) {
-            callBack(allHouses); // Pass data to the parent (App)
-        }else {
-            console.log("empty");
+        }catch(err) {
+            console.log(err);
         }
-        console.log(allHouses); // Log the fetched houses data
-    }, [allHouses]);
 
-    return null; // This component doesn't render anything
+
+        },
+
+    registerCall: () => {
+
+    }
 };
 
 export default Service;
