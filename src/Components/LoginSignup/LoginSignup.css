@@ -70,8 +70,8 @@
 }
 
 .forgot-password{
-    margin-left: 335px;
-    margin-top: 20px;
+    margin-left: 125px;
+    margin-top: 18px;
     color: black;
     font-size: 16px;
     font-family: "Mona Sans", sans-serif;
@@ -128,7 +128,15 @@
 
 }
 .sign {
-    margin-top: -5pc;
+    margin-top: -5.2pc;
+    margin-left:12pc;
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+    color: #1563DF;
+}
+.sign:hover{
+    text-decoration: underline;
+
 }
 .login{
     margin-top: -5.2pc;

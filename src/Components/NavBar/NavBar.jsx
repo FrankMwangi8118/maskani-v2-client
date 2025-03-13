@@ -5,7 +5,7 @@ import submit from "../../assets/submit.png"
 import {useEffect, useState} from "react";
 
 const NavBar = ({setLogin}) => {
-    const [isLogin,setIsLogin]=useState(false);
+    const [isLogin,setIsLogin]=useState(true);
     const setterLogin=()=>{
         setIsLogin(!isLogin)
     }
