@@ -4,36 +4,49 @@ import email_icon from "../../assets/email.png";
 import password_icon from "../../assets/password.png";
 import "./LoginSignup.css";
 import Service from "../../Sevice/Service.jsx";
+import axios from "axios";
 
 const LoginSignUp = () => {
 
     const [action, setAction] = useState("Login");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [status,setStatus] = useState("");
-    const [responseMessage,setResponseMessage]=useState("");
+    const [status, setStatus] = useState("");
+    const [responseMessage, setResponseMessage] = useState("");
 
     // apiCalls
 
     const handleLogin = async () => {
-        const userData={username,password};
+        const userData = {username, password};
+
         try {
+            const response = await Service.loginCall(userData);
 
-            const response=await Service.loginCall(userData);
-            console.log(response.data);
-            setStatus()
+            if (response.data && response.data.responseCode === "200") {
+                setResponseMessage(response.data.responseDescription || "Login successful!");
+                setStatus("success");
 
-        }catch(err) {
-            console.log(err);
+                // Optionally store the token
+                // localStorage.setItem("token", response.data.result);
+
+                // Handle roles if needed
+                console.log("User roles:", response.data.results);
+            } else {
+                setResponseMessage("Wrong username or password");
+                setStatus("error");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+            setResponseMessage("wrong username or password || account not activated");
+            setStatus("error");
         }
-    }
-
-
-
-
-
+    };
     return (
         <div className="container">
+            <div className={"p-status"}>
+                {status === "success" && <p className={"p-success"}>{responseMessage} !!</p>}
+                {status === "error" && <p className={"p-error"}>{responseMessage}</p>}
+            </div>
             <div className="header">
                 <div className="text">{action}</div>
                 <div className="underline"></div>
@@ -55,8 +68,8 @@ const LoginSignUp = () => {
                         type="email"
                         placeholder="Enter E-mail"
                         value={username}
-                        onChange={(e)=>setUsername(e.target.value)}
-                        />
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
                 </div>
 
                 <div className="input">
@@ -64,21 +77,20 @@ const LoginSignUp = () => {
                     <input
                         type="password"
                         placeholder="Enter Password"
-                        onChange={(e)=>setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
             </div>
 
-            <p style={{color:"red"}}>hello</p>
 
             {/* Login/Sign Up Button */}
-            {action==="Login"?
-(                <button className={`buttons ${action === "Login" ? "gray" : ""}`}
-                        onClick={() => handleLogin()}>
+            {action === "Login" ?
+                (<button className={`buttons ${action === "Login" ? "gray" : ""}`}
+                         onClick={() => handleLogin()}>
                     {action}
-                </button>):(
+                </button>) : (
                     <button className={`buttons ${action === "Login" ? "gray" : ""}`}
-                            onClick={() => setAction(action === "Login" ? "Sign Up" : "Login")}>
+                            onClick={() => console.log("hi")}>
                         {action}
                     </button>
                 )}

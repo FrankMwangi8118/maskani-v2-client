@@ -1,4 +1,4 @@
-.container{
+.container {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     margin-top: 50px;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,27 +19,27 @@
     margin-top: 30px;
 }
 
-.text{
+.text {
     color: #007bff;;
     font-size: 42px;
     font-weight: 600;
 }
 
-.underline{
+.underline {
     width: 61px;
     height: 6px;
     background-color: #007bff;
     border-radius: 9px;
 }
 
-.inputs{
+.inputs {
     margin-top: 55px;
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-.input{
+.input {
     display: flex;
     align-items: center;
     margin: auto;
@@ -49,14 +49,16 @@
     border-radius: 40px;
     transition: ease 0.1s;
 }
-.input:focus-within{
+
+.input:focus-within {
     border: 1px #0654a6 solid;
 }
-.input img{
+
+.input img {
     margin: 0px 30px;
 }
 
-.input input{
+.input input {
     height: 50px;
     width: 400px;
     background: transparent;
@@ -65,11 +67,12 @@
     color: #797979;
     font-size: 19px;
 }
-.input input::placeholder{
+
+.input input::placeholder {
     font-size: small;
 }
 
-.forgot-password{
+.forgot-password {
     margin-left: 125px;
     margin-top: 18px;
     color: black;
@@ -77,16 +80,17 @@
     font-family: "Mona Sans", sans-serif;
     transition: ease-in-out 0.1s;
 }
-.forgot-password:hover{
+
+.forgot-password:hover {
     color: #0654a6;
 }
 
-.forgot-password span{
+.forgot-password span {
     color: #0654a6;
     cursor: pointer;
 }
 
-.submit-container{
+.submit-container {
     display: flex;
     gap: 30px;
     margin: 60px auto;
@@ -110,13 +114,14 @@
 /*    background: #EAEAEA;*/
 /*    color: #676767;*/
 /*}*/
-.already{
+.already {
     font-size: 1pc;
     font-family: "Mona Sans", sans-serif;
     color: #222222;
-    margin:1pc 0 0 7.6pc ;
+    margin: 1pc 0 0 7.6pc;
 }
-.buttons{
+
+.buttons {
     background-color: #007bff;
     width: 380px;
     height: 3.5pc;
@@ -127,24 +132,58 @@
     border: none;
 
 }
+
 .sign {
     margin-top: -5.2pc;
-    margin-left:12pc;
+    margin-left: 12pc;
     transition: ease-in-out 0.1s;
     cursor: pointer;
     color: #1563DF;
 }
-.sign:hover{
+
+.sign:hover {
     text-decoration: underline;
 
 }
-.login{
+
+.login {
     margin-top: -5.2pc;
-    margin-left:12pc;
+    margin-left: 12pc;
     color: #007bff;
     transition: ease-in-out 0.1s;
     cursor: pointer;
 }
+
 .login:hover {
     text-decoration: underline;
 }
+
+.p-error {
+    margin-top: 1pc;
+    margin-left: 3.5pc;
+    font-size: 15px;
+    font-family: "Mona Sans", sans-serif;
+    color: red;
+}
+
+.p-success {
+    margin-top: 1pc;
+    margin-left: 9.5pc;
+    font-size: 15px;
+    font-family: "Mona Sans", sans-serif;
+    color: #12d812;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
