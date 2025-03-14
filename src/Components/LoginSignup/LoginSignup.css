@@ -130,7 +130,9 @@
     border-radius: 2pc;
     outline: none;
     border: none;
-
+}
+.buttons:disabled{
+    background-color: gray;
 }
 
 .sign {
@@ -163,7 +165,7 @@
     margin-left: 3.5pc;
     font-size: 15px;
     font-family: "Mona Sans", sans-serif;
-    color: red;
+    color: #fb6363;
 }
 
 .p-success {
@@ -178,6 +180,12 @@
 
 
 
+.error-text {
+    color: #fb6363;
+    font-size: 9px;
+    margin-top: 5px;
+    margin-left: -150px;
+}
 
 
 

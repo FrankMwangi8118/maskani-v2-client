@@ -4,48 +4,76 @@ import email_icon from "../../assets/email.png";
 import password_icon from "../../assets/password.png";
 import "./LoginSignup.css";
 import Service from "../../Sevice/Service.jsx";
-import axios from "axios";
 
 const LoginSignUp = () => {
-
     const [action, setAction] = useState("Login");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [status, setStatus] = useState("");
+    const [username1, setUsername1] = useState("");
     const [responseMessage, setResponseMessage] = useState("");
+    const [errors, setErrors] = useState({username: "", password: ""});
 
-    // apiCalls
+    // Email validation regex
+    const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    // Handle input changes and show errors in real time
+    const handleUsernameChange = (e) => {
+        const value = e.target.value;
+        setUsername(value);
+        if (!isValidEmail(value)) {
+            setErrors((prev) => ({...prev, username: "Invalid email format"}));
+        } else {
+            setErrors((prev) => ({...prev, username: ""}));
+        }
+    };
+
+    const handlePasswordChange = (e) => {
+        const value = e.target.value;
+        setPassword(value);
+        if (value.length < 8) {
+            setErrors((prev) => ({...prev, password: "must be at least 8 characters"}));
+        } else {
+            setErrors((prev) => ({...prev, password: ""}));
+        }
+    };
 
     const handleLogin = async () => {
+        if (errors.username || errors.password) return; // Prevent API call if errors exist
         const userData = {username, password};
 
         try {
             const response = await Service.loginCall(userData);
-
             if (response.data && response.data.responseCode === "200") {
                 setResponseMessage(response.data.responseDescription || "Login successful!");
                 setStatus("success");
+                setUsername("")
+                setPassword("");
 
-                // Optionally store the token
-                // localStorage.setItem("token", response.data.result);
 
-                // Handle roles if needed
-                console.log("User roles:", response.data.results);
             } else {
                 setResponseMessage("Wrong username or password");
                 setStatus("error");
+                setUsername("");
+                setPassword("");
             }
         } catch (err) {
             console.error("Error:", err);
-            setResponseMessage("wrong username or password || account not activated");
+            setResponseMessage("Wrong username or password || account not activated");
             setStatus("error");
+            setPassword("")
+
         }
     };
+
+    const isLoginDisabled = errors.username || errors.password || username.trim() === "" || password.trim() === "";
+    const isSignUpDisabled = username1.trim() === "" || errors.username || errors.password || username.trim() === "" || password.trim() === "";
+
     return (
         <div className="container">
-            <div className={"p-status"}>
-                {status === "success" && <p className={"p-success"}>{responseMessage} !!</p>}
-                {status === "error" && <p className={"p-error"}>{responseMessage}</p>}
+            <div className="p-status">
+                {status === "success" && <p className="p-success">{responseMessage} !!</p>}
+                {status === "error" && <p className="p-error">{responseMessage}</p>}
             </div>
             <div className="header">
                 <div className="text">{action}</div>
@@ -56,8 +84,11 @@ const LoginSignUp = () => {
                 {action === "Sign Up" && (
                     <div className="input">
                         <img src={user_icon} alt="User Icon" width="17" height="15"/>
-                        <input type="text"
-                               placeholder="Enter Name"
+                        <input
+                            type="text"
+                            placeholder="Enter Name"
+                            value={username1}
+                            onChange={(e) => setUsername1(e.target.value)}
                         />
                     </div>
                 )}
@@ -68,8 +99,9 @@ const LoginSignUp = () => {
                         type="email"
                         placeholder="Enter E-mail"
                         value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={handleUsernameChange}
                     />
+                    {errors.username && <p className="error-text">{errors.username}</p>}
                 </div>
 
                 <div className="input">
@@ -77,29 +109,30 @@ const LoginSignUp = () => {
                     <input
                         type="password"
                         placeholder="Enter Password"
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        onChange={handlePasswordChange}
                     />
+                    {errors.password && <p className="error-text">{errors.password}</p>}
                 </div>
             </div>
 
 
-            {/* Login/Sign Up Button */}
             {action === "Login" ?
                 (<button className={`buttons ${action === "Login" ? "gray" : ""}`}
-                         onClick={() => handleLogin()}>
+                         onClick={() => handleLogin()}
+                         disabled={isLoginDisabled}
+                >
+
                     {action}
                 </button>) : (
                     <button className={`buttons ${action === "Login" ? "gray" : ""}`}
-                            onClick={() => console.log("hi")}>
+                            onClick={() => console.log("hi")}
+                            disabled={isSignUpDisabled}
+                    >
                         {action}
                     </button>
                 )}
-            {/*<button className={`buttons ${action === "Login" ? "gray" : ""}`}*/}
-            {/*        onClick={() => setAction(action === "Login" ? "Sign Up" : "Login")}>*/}
-            {/*    {action}*/}
-            {/*</button>*/}
 
-            {/* Conditional Display for "Forgot Password" or "Already have an account?" */}
             {action === "Sign Up" ? (
                 <div className="already">Already have an account?</div>
             ) : (
@@ -114,7 +147,6 @@ const LoginSignUp = () => {
                     <div className="login" onClick={() => setAction("Login")}>Login</div>
                 )}
             </div>
-
         </div>
     );
 };
