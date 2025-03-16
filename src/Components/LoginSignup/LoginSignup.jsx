@@ -68,6 +68,17 @@ const LoginSignUp = ({loginStatusSetter}) => {
         }
     };
 
+    const handleSignUp=async()=>{
+        const signUpData={password,username}
+        try{
+
+           const response= await Service.signUpCall(signUpData)
+            console.log(response)
+        }catch (err) {
+            console.log(err)
+        }
+    }
+
     const isLoginDisabled = errors.username || errors.password || username.trim() === "" || password.trim() === "";
     const isSignUpDisabled = username1.trim() === "" || errors.username || errors.password || username.trim() === "" || password.trim() === "";
 
@@ -128,7 +139,7 @@ const LoginSignUp = ({loginStatusSetter}) => {
                     {action}
                 </button>) : (
                     <button className={`buttons ${action === "Login" ? "gray" : ""}`}
-                            onClick={() => console.log("hi")}
+                            onClick={() => handleSignUp()}
                             disabled={isSignUpDisabled}
                     >
                         {action}
