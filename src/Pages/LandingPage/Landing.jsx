@@ -23,12 +23,19 @@ const Landing = ({getFilterUrl, getFilteredUnits, isLogin}) => {
     const [open, setOpen] = useState(false);
     const [page, setPageNo] = useState("0");
     const [isslogin, setIslogin] = useState(false);
-    console.log("from lnding" + isslogin)
+    const [loginStatus, setLoginStatus] = useState()
 
+
+    console.log("from lnding" + isslogin)
     useEffect(() => {
+
         setIslogin(isLogin);
+
     }, [isLogin]);
 
+    useEffect(() => {
+        setIslogin(loginStatus)
+    }, [loginStatus]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -42,12 +49,15 @@ const Landing = ({getFilterUrl, getFilteredUnits, isLogin}) => {
         return () => clearInterval(interval);
     }, []);
 
-    // Handle form submission for search with query params
+    const loginStatusSetter = (value) => {
+        setLoginStatus(value);
+    }
+
     const handleSearch = () => {
         const params = {
             unitType,
             county,
-            subCounty: subCounty || null,  // Convert empty strings to null
+            subCounty: subCounty || null,
             minPrice: minPrice ? minPrice : null,
             maxPrice: maxPrice ? maxPrice : null
         };
@@ -214,11 +224,13 @@ const Landing = ({getFilterUrl, getFilteredUnits, isLogin}) => {
             {isslogin && (
                 <div className="test">
                     <div className={"close"}
-                         onClick={()=>{setIslogin(!isslogin)}}
+                         onClick={() => {
+                             setIslogin(!isslogin)
+                         }}
                     >
                         <p>X</p>
                     </div>
-                    <LoginSignUp/>
+                    <LoginSignUp loginStatusSetter={loginStatusSetter}/>
                 </div>
             )}
             <div className={"next-page-nav"}>

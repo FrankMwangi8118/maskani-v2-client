@@ -5,7 +5,7 @@ import password_icon from "../../assets/password.png";
 import "./LoginSignup.css";
 import Service from "../../Sevice/Service.jsx";
 
-const LoginSignUp = () => {
+const LoginSignUp = ({loginStatusSetter}) => {
     const [action, setAction] = useState("Login");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -47,15 +47,17 @@ const LoginSignUp = () => {
             if (response.data && response.data.responseCode === "200") {
                 setResponseMessage(response.data.responseDescription || "Login successful!");
                 setStatus("success");
-                setUsername("")
+                setUsername("");
                 setPassword("");
-
+                loginStatusSetter(false);
 
             } else {
                 setResponseMessage("Wrong username or password");
                 setStatus("error");
                 setUsername("");
                 setPassword("");
+                loginStatusSetter(false);
+
             }
         } catch (err) {
             console.error("Error:", err);
