@@ -78,7 +78,7 @@
     background-color: #0654a6;
 }
 .btn-submit-property:disabled{
-    background-color: red;
+    background-color: gray;
 }
 
 .nav-links {
