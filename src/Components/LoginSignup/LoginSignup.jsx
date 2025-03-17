@@ -1,23 +1,23 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import user_icon from "../../assets/person.png";
 import email_icon from "../../assets/email.png";
 import password_icon from "../../assets/password.png";
 import "./LoginSignup.css";
 import Service from "../../Sevice/Service.jsx";
 
-const LoginSignUp = ({loginStatusSetter}) => {
+const LoginSignUp = ({loginStatusSetter, custLoginResSetter}) => {
     const [action, setAction] = useState("Login");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("chelseanorah02@gmail.com");
+    const [password, setPassword] = useState("chelsea123");
     const [status, setStatus] = useState("");
     const [username1, setUsername1] = useState("");
     const [responseMessage, setResponseMessage] = useState("");
     const [errors, setErrors] = useState({username: "", password: ""});
-
+    const [res, setRes] = useState({});
     // Email validation regex
     const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    // Handle input changes and show errors in real time
+    // Handle input changes andcustLoginResSetter show errors in real time
     const handleUsernameChange = (e) => {
         const value = e.target.value;
         setUsername(value);
@@ -37,6 +37,9 @@ const LoginSignUp = ({loginStatusSetter}) => {
             setErrors((prev) => ({...prev, password: ""}));
         }
     };
+    useEffect(() => {
+        custLoginResSetter(res)
+    }, [res])
 
     const handleLogin = async () => {
         if (errors.username || errors.password) return; // Prevent API call if errors exist
@@ -45,6 +48,7 @@ const LoginSignUp = ({loginStatusSetter}) => {
         try {
             const response = await Service.loginCall(userData);
             if (response.data && response.data.responseCode === "200") {
+                setRes(response.data)
                 setResponseMessage(response.data.responseDescription || "Login successful!");
                 setStatus("success");
                 setUsername("");
@@ -58,23 +62,29 @@ const LoginSignUp = ({loginStatusSetter}) => {
                 setPassword("");
                 loginStatusSetter(false);
 
+
             }
         } catch (err) {
             console.error("Error:", err);
             setResponseMessage("Wrong username or password || account not activated");
             setStatus("error");
             setPassword("")
+            const errResponse = {
+                responseCode: "500",
+                results: ""
+            };
+            custLoginResSetter(errResponse)
 
         }
     };
 
-    const handleSignUp=async()=>{
-        const signUpData={password,username}
-        try{
+    const handleSignUp = async () => {
+        const signUpData = {password, username}
+        try {
 
-           const response= await Service.signUpCall(signUpData)
+            const response = await Service.signUpCall(signUpData)
             console.log(response)
-        }catch (err) {
+        } catch (err) {
             console.log(err)
         }
     }

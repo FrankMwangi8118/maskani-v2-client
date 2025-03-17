@@ -77,6 +77,9 @@
 .btn-submit-property:hover {
     background-color: #0654a6;
 }
+.btn-submit-property:disabled{
+    background-color: red;
+}
 
 .nav-links {
     display: flex;

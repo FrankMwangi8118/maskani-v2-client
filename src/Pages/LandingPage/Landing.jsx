@@ -7,7 +7,7 @@ import LoginSignUp from "../../Components/LoginSignup/LoginSignup.jsx";
 
 const words = ["Dream Home", "Perfect Home"];
 
-const Landing = ({getFilterUrl, getFilteredUnits, isLogin}) => {
+const Landing = ({getFilterUrl, getFilteredUnits, isLogin,customLoginResponseSetter}) => {
     const BASE_URL = `http://localhost:8081/maskani/api/v1/report`;
 
     const [unitType, setUnitType] = useState("");
@@ -24,7 +24,14 @@ const Landing = ({getFilterUrl, getFilteredUnits, isLogin}) => {
     const [page, setPageNo] = useState("0");
     const [isslogin, setIslogin] = useState(false);
     const [loginStatus, setLoginStatus] = useState()
+    const [customLoginResponse,setCustomLoginResponse]=useState({});
 
+    useEffect(()=>{
+        customLoginResponseSetter(customLoginResponse)
+    },[customLoginResponse])
+    const custLoginResSetter=(res)=>{
+        setCustomLoginResponse(res);
+    }
 
     console.log("from lnding" + isslogin)
     useEffect(() => {
@@ -230,7 +237,10 @@ const Landing = ({getFilterUrl, getFilteredUnits, isLogin}) => {
                     >
                         <p>X</p>
                     </div>
-                    <LoginSignUp loginStatusSetter={loginStatusSetter}/>
+                    <LoginSignUp
+                        loginStatusSetter={loginStatusSetter}
+                        custLoginResSetter={custLoginResSetter}
+                    />
                 </div>
             )}
             <div className={"next-page-nav"}>
