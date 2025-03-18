@@ -4,12 +4,30 @@ import person from "../../assets/signin.png";
 import submit from "../../assets/submit.png";
 import logout from "../../assets/logout.png";
 import { useEffect, useState } from "react";
+import Service  from "../../Sevice/Service.jsx";
 
 const NavBar = ({ setLogin, customLoginResponse }) => {
     const [isLogin, setIsLogin] = useState(true);
     const [loginButtonStatus, setLoginButtonStatus] = useState(true);
     const [roles, setRoles] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);  // FIX: Use useState for re-renders
+    const [logoutStatus,setLogoutStatus]=useState();
+
+    const handleLogout= async () => {
+        const response = await Service.logoutCall();
+        console.log("from navbar " + response.responseDescription);
+        if (response.responseCode==="200"){
+            setLogoutStatus(true)
+        }else{
+            setLogoutStatus(false)
+        }
+    }
+    useEffect(() => {
+        if (logoutStatus){
+            setRoles([])
+            setLoginButtonStatus(true)
+        }
+    }, [logoutStatus]);
 
     const setterLogin = () => {
         setIsLogin(!isLogin);
@@ -75,7 +93,7 @@ const NavBar = ({ setLogin, customLoginResponse }) => {
                         <p> Sign in</p>
                     </button>
                 ) : (
-                    <button className="btn-siginIn" onClick={setterLogin}>
+                    <button className="btn-siginIn" onClick={handleLogout}>
                         <img src={logout} alt="icon" width="25" height="25" />
                         <p>Log out</p>
                     </button>
