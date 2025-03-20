@@ -55,17 +55,27 @@
     gap: 10px;
 }
 
-.btn-siginIn {
+.btn_login{
+    border: 1px solid #007bff;
+    width: 160px;
+    background-color: white;
+    transition: ease-in-out 0.1s;
+}
+.btn_logout{
     border: 1px solid #007bff;
     width: 160px;
     background-color: white;
     transition: ease-in-out 0.1s;
 }
 
-.btn-siginIn:hover {
+.btn_logout:hover {
     background-color: #007bff;
     border: none;
 
+}
+.btn_login{
+    background-color: #007bff;
+    border: none;
 }
 
 .btn-submit-property {

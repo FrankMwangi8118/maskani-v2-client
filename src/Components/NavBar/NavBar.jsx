@@ -4,63 +4,37 @@ import person from "../../assets/signin.png";
 import submit from "../../assets/submit.png";
 import logout from "../../assets/logout.png";
 import { useEffect, useState } from "react";
-import Service  from "../../Sevice/Service.jsx";
+import Service from "../../Sevice/Service.jsx";
 
 const NavBar = ({ setLogin, customLoginResponse }) => {
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLogin, setIsLogin] = useState(false);
     const [loginButtonStatus, setLoginButtonStatus] = useState(true);
     const [roles, setRoles] = useState([]);
-    const [isDisabled, setIsDisabled] = useState(false);  // FIX: Use useState for re-renders
-    const [logoutStatus,setLogoutStatus]=useState();
-
-    const handleLogout= async () => {
-        const response = await Service.logoutCall();
-        console.log("from navbar " + response.responseDescription);
-        if (response.responseCode==="200"){
-            setLogoutStatus(true)
-        }else{
-            setLogoutStatus(false)
-        }
-    }
-    useEffect(() => {
-        if (logoutStatus){
-            setRoles([])
-            setLoginButtonStatus(true)
-        }
-    }, [logoutStatus]);
-
-    const setterLogin = () => {
-        setIsLogin(!isLogin);
-    };
+    const [isDisabled, setIsDisabled] = useState(false);
+    const [logoutStatus, setLogoutStatus] = useState(null);
 
     useEffect(() => {
         if (customLoginResponse?.responseCode === "200") {
             setLoginButtonStatus(false);
-        } else {
-            setLoginButtonStatus(true);
         }
     }, [customLoginResponse]);
 
     useEffect(() => {
-        console.log("Login button status:", loginButtonStatus);
-    }, [loginButtonStatus]);
+        if (customLoginResponse?.results) {
+            let results = customLoginResponse.results;
+            console.log("Raw API results:", results);
 
-    useEffect(() => {
-        let results = customLoginResponse?.results;
-        console.log("Raw API results:", results);
-
-        if (typeof results === "string") {
-            let parsedRoles = results.replace(/\[|\]/g, "").split(",");
-            setRoles(parsedRoles.map(role => role.trim().replace(/"/g, "")));
-        } else {
-            setRoles([]);
+            if (typeof results === "string") {
+                let parsedRoles = results.replace(/\[|\]/g, "").split(",");
+                setRoles(parsedRoles.map(role => role.trim().replace(/"/g, "")));
+            } else {
+                setRoles([]);
+            }
         }
     }, [customLoginResponse]);
 
     useEffect(() => {
         setIsDisabled(roles.some(role => role.toLowerCase() === "role_client"));
-        console.log("Processed Roles:", roles);
-        console.log("isDisabled:", isDisabled);
     }, [roles]);
 
     useEffect(() => {
@@ -68,6 +42,28 @@ const NavBar = ({ setLogin, customLoginResponse }) => {
             setLogin(isLogin);
         }
     }, [isLogin, setLogin]);
+
+    const toggleLogin = () => {
+        setIsLogin(prev => !prev);
+    };
+
+    const handleLogout = async () => {
+        try {
+            const response = await Service.logoutCall();
+            console.log("Logout Response:", response.responseDescription);
+
+            if (response.responseCode === "200") {
+                setLogoutStatus(true);
+                setRoles([]);
+                setLoginButtonStatus(true);
+                setIsLogin(false);
+            } else {
+                setLogoutStatus(false);
+            }
+        } catch (error) {
+            console.error("Logout Error:", error);
+        }
+    };
 
     return (
         <div className="nav-wrapper">
@@ -78,22 +74,22 @@ const NavBar = ({ setLogin, customLoginResponse }) => {
                     <div className="homes-p"><p className="maskani">Search homes</p></div>
                 </div>
             </div>
-            <div className="nav-links">
+            <ul className="nav-links">
                 <li className="home">Home</li>
                 <li className="properties">Properties</li>
                 <li className="about">About</li>
                 <li className="careers">Careers</li>
                 <li className="pricing">Pricing</li>
                 <li className="contacts">Contacts</li>
-            </div>
+            </ul>
             <div className="btns">
                 {loginButtonStatus ? (
-                    <button className="btn-siginIn" onClick={setterLogin}>
+                    <button className="btn_login" onClick={toggleLogin}>
                         <img src={person} alt="icon" width="25" height="25" />
-                        <p> Sign in</p>
+                        <p>Sign in</p>
                     </button>
                 ) : (
-                    <button className="btn-siginIn" onClick={handleLogout}>
+                    <button className="btn_logout" onClick={handleLogout}>
                         <img src={logout} alt="icon" width="25" height="25" />
                         <p>Log out</p>
                     </button>
