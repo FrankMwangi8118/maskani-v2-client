@@ -5,6 +5,9 @@ import submit from "../../assets/submit.png";
 import logout from "../../assets/logout.png";
 import { useEffect, useState } from "react";
 import Service from "../../Sevice/Service.jsx";
+import {useNavigate} from "react-router";
+import Dashboard from "../../Pages/ClientDashboard/Components/Dashboard.jsx";
+import {createRoot} from "react-dom/client";
 
 const NavBar = ({ setLogin, customLoginResponse }) => {
     const [isLogin, setIsLogin] = useState(false);
@@ -18,6 +21,9 @@ const NavBar = ({ setLogin, customLoginResponse }) => {
             setLoginButtonStatus(false);
         }
     }, [customLoginResponse]);
+
+
+
 
     useEffect(() => {
         if (customLoginResponse?.results) {
@@ -65,6 +71,16 @@ const NavBar = ({ setLogin, customLoginResponse }) => {
         }
     };
 
+
+
+    const OnDashBoardCall=()=>{
+
+        window.location.href = '/?view=dashboard';
+    }
+
+
+
+
     return (
         <div className="nav-wrapper">
             <div className="logo-wrapper">
@@ -94,7 +110,9 @@ const NavBar = ({ setLogin, customLoginResponse }) => {
                         <p>Log out</p>
                     </button>
                 )}
-                <button className="btn-submit-property" disabled={!isDisabled}>
+                <button className="btn-submit-property" disabled={!isDisabled}
+                onClick={OnDashBoardCall}
+                >
                     <img src={submit} alt="icon" width="20" height="20" />
                     <p>Submit property</p>
                 </button>

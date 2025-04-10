@@ -1,19 +1,16 @@
-import PropertyCard from "./Components/PropertyCard/PropertyCard.jsx";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Landing from "./Pages/LandingPage/Landing.jsx";
-import Service from "./Sevice/Service.jsx";
 import Listing from "./Pages/Listing/Listing.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import NavBar from "./Components/NavBar/NavBar.jsx";
-import LoginSignUp from "./Components/LoginSignup/LoginSignup.jsx";
+import Dashboard from "./Pages/ClientDashboard/Components/Dashboard.jsx";
+import NotFound from "./Pages/ErrorPages/NotFound.jsx";
 
 const App = () => {
     const [isLogin, setIsLogin] = useState(false);
-
     const [allHouse, setAllHouse] = useState([]);
     const [filterUrl, setFilterUrl] = useState("");
-    // const [filteredUnits,setFilteredUnits]=useState([]);
-
     const [customLoginResponse, setCustomLoginResponse] = useState({});
 
     const BASE_URL = `http://localhost:8081/maskani/api/v1/report`;
@@ -22,66 +19,53 @@ const App = () => {
         setCustomLoginResponse(customResponse);
         console.log("custom login response:", JSON.stringify(customLoginResponse, null, 2));
         console.log("Response Code:", customResponse.responseCode);
-        // console.log("customResponse"+ customLoginResponse)
-    }
+    };
 
     const setLogin = (states) => {
-        setIsLogin(states)
-        console.log(isLogin + "from app")
-    }
+        setIsLogin(states);
+        console.log(isLogin + "from app");
+    };
 
     const getFilterUrl = (filter) => {
         setFilterUrl(filter);
-
-    }
+    };
 
     const getFilteredUnits = (filtered) => {
         console.log("Filtered Units received in App:", filtered);
         setAllHouse(filtered);
     };
 
-
-    console.log(filterUrl)
-
     const apiCall = () => {
         axios
             .get(BASE_URL)
-            .then(res => {
+            .then((res) => {
                 setAllHouse(res.data.results);
-            }).catch(err => {
-            console.log(err);
-        })
-            .catch(err => {
-                console.log(err);
             })
-    }
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     useEffect(() => {
         apiCall();
-    }, [])
-
-    console.log(allHouse);
-
+    }, []);
 
     return (
-
         <>
-            <NavBar
-                setLogin={setLogin}
-                customLoginResponse={customLoginResponse}
-            />
 
+                <NavBar setLogin={setLogin} customLoginResponse={customLoginResponse}/>
 
-            <Landing
-                getFilterUrl={getFilterUrl}
-                getFilteredUnits={getFilteredUnits}
-                isLogin={isLogin}
-                customLoginResponseSetter={customLoginResponseSetter}
+                <Landing
+                    getFilterUrl={getFilterUrl}
+                    getFilteredUnits={getFilteredUnits}
+                    isLogin={isLogin}
+                    customLoginResponseSetter={customLoginResponseSetter}
+                />
+                <Listing property={allHouse}/>
+                <Dashboard/>
 
-            />
-            <Listing property={allHouse}/>
+        </>
+    );
+};
 
-
-        </>);
-}
 export default App;
