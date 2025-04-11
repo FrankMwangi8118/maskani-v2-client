@@ -6,7 +6,7 @@ import logout from "../../assets/logout.png";
 import { useEffect, useState } from "react";
 import Service from "../../Sevice/Service.jsx";
 import {useNavigate} from "react-router";
-import Dashboard from "../../Pages/ClientDashboard/Components/Dashboard.jsx";
+import Dashboard from "../../Pages/ClientDashboard/Pages/Dashboard.jsx";
 import {createRoot} from "react-dom/client";
 
 const NavBar = ({ setLogin, customLoginResponse }) => {

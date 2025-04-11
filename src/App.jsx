@@ -4,7 +4,7 @@ import Listing from "./Pages/Listing/Listing.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import NavBar from "./Components/NavBar/NavBar.jsx";
-import Dashboard from "./Pages/ClientDashboard/Components/Dashboard.jsx";
+import Dashboard from "./Pages/ClientDashboard/Pages/Dashboard.jsx";
 import NotFound from "./Pages/ErrorPages/NotFound.jsx";
 
 const App = () => {
@@ -62,7 +62,7 @@ const App = () => {
                     customLoginResponseSetter={customLoginResponseSetter}
                 />
                 <Listing property={allHouse}/>
-                <Dashboard/>
+
 
         </>
     );

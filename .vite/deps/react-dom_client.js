@@ -3582,7 +3582,7 @@ var require_react_dom_client_development = __commonJS({
               thenableState2 = workInProgressRoot;
               if (null !== thenableState2 && 100 < thenableState2.shellSuspendCounter)
                 throw Error(
-                  "async/await is not yet supported in Client Components, only Server Components. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server."
+                  "async/await is not yet supported in Client Pages, only Server Pages. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server."
                 );
               thenableState2 = thenable;
               thenableState2.status = "pending";
@@ -4548,7 +4548,7 @@ var require_react_dom_client_development = __commonJS({
           nextRenderLanes = getComponentNameFromFiber(
             currentlyRenderingFiber$1
           ), didWarnAboutAsyncClientComponent.has(nextRenderLanes) || (didWarnAboutAsyncClientComponent.add(nextRenderLanes), console.error(
-            "async/await is not yet supported in Client Components, only Server Components. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server."
+            "async/await is not yet supported in Client Pages, only Server Pages. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server."
           ));
         workInProgress2.memoizedState = null;
         workInProgress2.updateQueue = null;
