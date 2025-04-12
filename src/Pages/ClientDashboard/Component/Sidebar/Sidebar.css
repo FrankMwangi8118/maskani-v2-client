@@ -1,0 +1,157 @@
+
+.side-bar {
+    background-color: #161E2D;
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: white;
+}
+
+.side-bar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /*padding: 1rem;*/
+}
+
+.logo {
+    margin-top: 40px;
+    height: 170px;
+    margin-bottom: 1rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.logo-content img{
+    width: 50px;
+    height: 50px;
+}
+.logo-content {
+    display: flex;
+    gap: 3PX;
+    height: 70px;
+    margin-left: -10px;
+}
+.logo-content p{
+    color: white;
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+}
+.logo-content .logo-dets{
+    font-size: 0.9rem;
+    font-weight: 100;
+    margin-top: -4px;
+}
+
+.profile {
+    height: 130px;
+    border-top: 1px solid gray;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.profile-content{
+
+    gap: 3PX;
+
+}
+.profile-p{
+    font-family: "Mona Sans", sans-serif;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: gray;
+}
+.profile-area{
+    margin-top: 10px;
+    gap: 12px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.profile-pic{
+    height: 60px;
+    background-color: #007bff;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-letter{
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 300;
+    font-size: 01rem;
+}
+
+.account-pp{
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #8c8a8a;
+}
+.email{
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+
+}
+
+.profile-dets{
+    margin-right:-10px;
+}
+.menu {
+    flex-grow: 1;
+    /*background-color: rgba(255, 255, 255, 0.1);*/
+    border-top: 1px solid gray;
+}
+.menu-p{
+    margin-top: 13px;
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #8c8a8a;
+    margin-left: 20px;
+}
+.menu-item{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    color: white;
+    /*background-color: #007bff;*/
+    gap: 12px;
+    /*background-color: red;*/
+    transition: ease-in-out 0.6s;
+}
+.menu-item:hover{
+    background-color: #007bff;
+}
+.menu-item img{
+    width: 25px;
+    height: 25px;
+    color: aliceblue;
+    margin-left: 20px;
+    }
+.menu-label{
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.menu-content{
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    margin-top: -40px;
+    width: 100%;
+}
+
