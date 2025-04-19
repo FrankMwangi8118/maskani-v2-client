@@ -40,6 +40,7 @@ const Service = {
                 }
             })
             console.log(res.data)
+            localStorage.removeItem("jwt");
             return res.data;
 
         }catch (e) {

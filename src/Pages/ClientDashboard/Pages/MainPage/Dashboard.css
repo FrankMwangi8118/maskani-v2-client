@@ -4,3 +4,14 @@ body, html, #root {
     margin: 0;
     padding: 0;
 }
+.dash-container {
+    /*background-color: yellow;*/
+    height: 100%;
+    width: 85.3%;
+    margin-left: 280px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+

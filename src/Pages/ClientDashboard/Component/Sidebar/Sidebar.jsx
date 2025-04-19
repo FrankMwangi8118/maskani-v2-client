@@ -7,61 +7,64 @@ import propertManagement from "../../../../assets/propertyManagement.png"
 import reviews from "../../../../assets/reviews.png"
 import messages from "../../../../assets/message.png"
 
-const Sidebar = () => {
+const Sidebar = ({selected, setSelected}) => {
 
-    const sideBarData=[
+    const sideBarData = [
         {
-            "icon":dash,
-            "label":"Dashboard",
+            "icon": dash,
+            "label": "Dashboard",
         },
         {
-            "icon":profileSetting,
-            "label":"Profile",
+            "icon": profileSetting,
+            "label": "Profile",
         },
         {
-            "icon":property,
-            "label":"My properties",
+            "icon": property,
+            "label": "My properties",
         }
         ,
         {
-            "icon":propertManagement,
-            "label":"property management",
+            "icon": propertManagement,
+            "label": "property management",
         },
         {
-            "icon":reviews,
-            "label":"reviews",
+            "icon": reviews,
+            "label": "reviews",
         },
         {
-            "icon":messages,
-            "label":"messages",
+            "icon": messages,
+            "label": "messages",
         }
 
 
     ]
 
 
-
-
-
     let email = "frankmwangi8118@gmail.com"
-    function initialLetterTimmer(email){
+
+    function initialLetterTimmer(email) {
         return email.trim().charAt(0).toUpperCase();
     }
-    function emailAppender(email){
-        const atIndex=email.indexOf("@");
-        const beforeAt=email.slice(0,atIndex+1);
-        return beforeAt+"....";
+
+    function emailAppender(email) {
+        const atIndex = email.indexOf("@");
+        const beforeAt = email.slice(0, atIndex + 1);
+        return beforeAt + "....";
+    }
+    function update(labels) {
+        setSelected(labels)
     }
 
     return (
         <>
+
             <div className={"side-bar"}>
                 <div className={"side-bar-content"}>
                     <div className={"logo"}>
                         < div className={"logo-content"}>
                             <img src={dashboard} alt="logo"/>
                             <div className={"logo-dets"}>
-                                <p>DASHBOARD</p>
+                                <p>MASKANI</p>
                                 <p className={"logo-dets"}>
                                     manage homes
                                 </p>
@@ -90,12 +93,19 @@ const Sidebar = () => {
                         <div className={"listing-wrapper"}>
 
                             <div className={"menu-content"}>
-                            {sideBarData.map((item, index) => (
-                                <div className="menu-item" key={index}>
-                                    <img src={item.icon} alt={item.label} className="menu-icon" />
-                                    <p className="menu-label">{item.label}</p>
-                                </div>
-                            ))}
+                                {sideBarData.map((item, index) => (
+                                    <div
+                                        className={`menu-item ${selected === item.label ? "active" : ""}`}                                        key={index}
+                                        onClick={() => update(item.label)}
+                                    >
+                                        <img
+                                            src={item.icon}
+                                            alt={item.label}
+                                            className="menu-icon"
+                                        />
+                                        <p className="menu-label">{item.label}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 

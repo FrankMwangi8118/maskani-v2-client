@@ -48,6 +48,7 @@ const LoginSignUp = ({loginStatusSetter, custLoginResSetter}) => {
         try {
             const response = await Service.loginCall(userData);
             if (response.data && response.data.responseCode === "200") {
+                localStorage.setItem("jwt",response.data.result);
                 setRes(response.data)
                 setResponseMessage(response.data.responseDescription || "Login successful!");
                 setStatus("success");
