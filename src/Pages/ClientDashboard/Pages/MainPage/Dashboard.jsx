@@ -11,7 +11,7 @@ import Reviews from "../../Component/Reviews/Reviews.jsx";
 
 const Dashboard = () => {
 
-    const [selected, setSelected] = useState(null);
+    const [selected, setSelected] = useState("Dashboard");
 
 
     const render = () => {

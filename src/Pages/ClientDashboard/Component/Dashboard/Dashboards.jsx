@@ -77,9 +77,9 @@ const Dashboards = () => {
             <div className={"__nav"}>
                 <div className={"__subs"}>
                     <ul className={"mine"}>
-                    <li className={"desc"}>DESCRIPTION</li>
-                    <li className={"pending"}>PENDING</li>
-                    <li className={"action"}>ACTION</li>
+                    <li className={"desc"}>description</li>
+                    <li className={"pending"}>pending</li>
+                    <li className={"action"}>action</li>
                     </ul>
                 </div>
             </div>
@@ -94,8 +94,8 @@ const Dashboards = () => {
                             </div>
                             <div className={"data-right"}>
                                 <p className={"__name"}>{item.buildingName}</p>
-                                <p className={"__location"}>{item.location}</p>
                                 <p className={"__added"}>{item.addedOn}</p>
+                                <p className={"__location"}>{item.location}</p>
                             </div>
                             <div className={"pending-units-desc"}>
                                 <p className={"name"}>name</p>

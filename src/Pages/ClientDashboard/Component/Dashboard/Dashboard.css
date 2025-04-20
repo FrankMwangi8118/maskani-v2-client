@@ -17,8 +17,8 @@
     box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     padding: 30px;
-    width: 270px;
-    height: 70px;
+    width: 260px;
+    height: 60px;
     align-items: center;
     border-radius: 20px;
 }
@@ -35,13 +35,15 @@
 .p-desc {
     text-align: center;
     font-family: "Mona Sans", sans-serif;
-    font-size: 25px;
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555555;
     margin-top: -5px;
 }
 
 .count {
-    font-weight: 400;
+    font-size: 30px;
+    font-weight: 800;
     font-family: "Mona Sans", sans-serif;
 }
 
@@ -104,6 +106,7 @@
     border-right: 1px solid #8c8a8a;
 }
 
+
 .data-left {
     display: flex;
 }
@@ -116,21 +119,34 @@
     height: 100%;
     border-right: 1px solid #8c8a8a;
 }
+.__nav li{
+    list-style: none;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+}
 .__name{
     font-family: "Mona Sans", sans-serif;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 600;
 }
 .__location{
     font-family: "Mona Sans", sans-serif;
-    font-size: 16px;
+    font-size: 15px;
+    color: #007bff;
+
+
 }
 .__added{
     font-family: "Mona Sans", sans-serif;
-    font-size: 18px;
-    color: #007bff;
+    font-size: 17px;
 }
-
+.pending{
+    margin-left: 360px;
+}
+.action{
+    margin-left: 40px;
+}
 
 
 
