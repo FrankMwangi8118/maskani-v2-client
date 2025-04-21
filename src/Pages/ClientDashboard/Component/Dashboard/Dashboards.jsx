@@ -10,31 +10,41 @@ const Dashboards = () => {
             "image": House,
             "buildingName": "mwas apartments",
             "location": "lumumba drive",
-            "addedOn": "12.12.2025"
+            "addedOn": "12.12.2025",
+            "totalUnits": 23,
+            "vacant": 2
         },
         {
             "image": House,
             "buildingName": "mwas apartments",
             "location": "lumumba drive",
-            "addedOn": "12.12.2025"
+            "addedOn": "12.12.2025",
+            "totalUnits": 79,
+            "vacant": 13
         },
         {
             "image": House,
             "buildingName": "mwas apartments",
             "location": "lumumba drive",
-            "addedOn": "12.12.2025"
+            "addedOn": "12.12.2025",
+            "totalUnits": 22,
+            "vacant": 11
         },
         {
             "image": House,
             "buildingName": "mwas apartments",
             "location": "lumumba drive",
-            "addedOn": "12.12.2025"
+            "addedOn": "12.12.2025",
+            "totalUnits": 42,
+            "vacant": 12
         },
         {
             "image": House,
             "buildingName": "mwas apartments",
             "location": "lumumba drive",
-            "addedOn": "12.12.2025"
+            "addedOn": "12.12.2025",
+            "totalUnits": 23,
+            "vacant": 45
         }
     ]
     const data = [
@@ -77,9 +87,9 @@ const Dashboards = () => {
             <div className={"__nav"}>
                 <div className={"__subs"}>
                     <ul className={"mine"}>
-                    <li className={"desc"}>description</li>
-                    <li className={"pending"}>pending</li>
-                    <li className={"action"}>action</li>
+                        <li className={"desc"}>description</li>
+                        <li className={"listing"}>listing</li>
+                        <li className={"action"}>action</li>
                     </ul>
                 </div>
             </div>
@@ -98,8 +108,11 @@ const Dashboards = () => {
                                 <p className={"__location"}>{item.location}</p>
                             </div>
                             <div className={"pending-units-desc"}>
-                                <p className={"name"}>name</p>
+                                <span className={"__rem"}>{item.vacant}<span
+                                    className={"__total-units"}>/{item.totalUnits} <span
+                                    className={"__rem-p"}>remaining</span></span></span>
                             </div>
+
 
                         </div>
 
